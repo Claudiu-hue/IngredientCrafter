@@ -1,5 +1,5 @@
 .login-container {
-  width: 300px;
+  width: 400px;
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
@@ -11,9 +11,15 @@
   flex-direction: column;
 }
 
-h1 {
+.container-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
   text-align: center;
   color: #333;
+  font-style: italic;
 }
 
 label {
@@ -26,17 +32,57 @@ input {
   margin: 5px 0 15px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
+  transition: transform 0.5s ease-in-out;
 }
 
-button {
+input:focus {
+  transform: scale(1.1);
+}
+
+.login-button {
   background-color: #4caf50;
   color: #fff;
   padding: 10px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-bottom: 20px;
+  transition: 0.5s ease;
 }
 
-button:hover {
+.google-button {
+  padding: 10px;
+  margin: 5px 0 15px 0;
+  border-radius: 10px;
+  background-color: #278eb9;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.login-button:hover {
   background-color: #45a049;
+}
+
+.google-button:hover {
+  background-color: #167eaa;
+}
+
+.container-image {
+  width: 100%;
+}
+
+img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: #45a049;
+  font-weight: 500;
+  font-size: medium;
 }

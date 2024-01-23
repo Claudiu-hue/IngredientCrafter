@@ -1,1 +1,40 @@
-<p>register works!</p>
+<div class="register-container">
+  <form
+    #registerForm="ngForm"
+    class="register-form"
+    (ngSubmit)="onSubmit(registerForm)"
+  >
+    <div class="container-form">
+      <h1 class="title">Register</h1>
+
+      <label for="username">Username*</label>
+      <input type="text" id="username" name="username" required ngModel />
+
+      <label for="email">Email*</label>
+      <input type="email" id="email" name="email" required email ngModel />
+
+      <label for="password">Password*</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+        ngModel
+        minlength="6"
+      />
+
+      <button
+        class="register-button"
+        type="submit"
+        [disabled]="!registerForm.valid"
+      >
+        Register
+      </button>
+    </div>
+    <div class="container-image">
+      <img src="../../assets/pexels-alesia-kozik-6546421.jpg" alt="" />
+    </div>
+  </form>
+
+  <h5>Already have an account? <a routerLink="/login">Login</a></h5>
+</div>
