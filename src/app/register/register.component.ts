@@ -17,14 +17,9 @@ export class RegisterComponent {
     const email = form.value.email;
     const password = form.value.password;
 
-    this.registerService.signUp(email, password).subscribe(
-      (responseData) => {
-        console.log(responseData);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    this.registerService
+      .signUp(email, password)
+      .subscribe({ complete: console.info });
 
     form.reset();
   }
