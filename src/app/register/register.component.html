@@ -1,11 +1,18 @@
-<div class="register-container">
+<div [ngClass]="!isLoading ? 'register-container' : ''">
+  <div [ngClass]="'container-spinner'" *ngIf="isLoading">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+  <div [ngClass]="'container-error'">
+    <span>{{ error }}</span>
+  </div>
   <form
     #registerForm="ngForm"
-    class="register-form"
+    [ngClass]="'register-form'"
     (ngSubmit)="onSubmit(registerForm)"
+    *ngIf="!isLoading"
   >
-    <div class="container-form">
-      <h1 class="title">Register</h1>
+    <div [ngClass]="'container-form'">
+      <h1 [ngClass]="'title'">Register</h1>
 
       <label for="username">Username*</label>
       <input type="text" id="username" name="username" required ngModel />
@@ -24,17 +31,16 @@
       />
 
       <button
-        class="register-button"
+        [ngClass]="'register-button'"
         type="submit"
         [disabled]="!registerForm.valid"
       >
         Register
       </button>
     </div>
-    <div class="container-image">
+    <div [ngClass]="'container-image'">
       <img src="../../assets/pexels-alesia-kozik-6546421.jpg" alt="" />
     </div>
+    <h5>Already have an account? <a routerLink="/login">Login</a></h5>
   </form>
-
-  <h5>Already have an account? <a routerLink="/login">Login</a></h5>
 </div>

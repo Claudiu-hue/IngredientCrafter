@@ -1,22 +1,45 @@
-<div class="login-container">
-  <form class="login-form">
-    <div class="container-form">
-      <h1 class="title">Login</h1>
+<div [ngClass]="!isLoading ? 'login-container' : ''">
+  <div [ngClass]="'container-spinner'" *ngIf="isLoading">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+  <div [ngClass]="'container-error'">
+    <span>{{ error }}</span>
+  </div>
+  <form
+    #loginForm="ngForm"
+    [ngClass]="'login-form'"
+    (ngSubmit)="onSubmit(loginForm)"
+    *ngIf="!isLoading"
+  >
+    <div [ngClass]="'container-form'">
+      <h1 [ngClass]="'title'">Login</h1>
 
-      <button class="google-button">Sign in with Google</button>
+      <button [ngClass]="'google-button'">Sign in with Google</button>
 
       <label for="email">Email*</label>
-      <input type="email" id="email" name="email" required />
+      <input type="email" id="email" name="email" required email ngModel />
 
       <label for="password">Password*</label>
-      <input type="password" id="password" name="password" required />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+        ngModel
+        minlength="6"
+      />
 
-      <button class="login-button" type="submit">Login</button>
+      <button
+        [ngClass]="'login-button'"
+        [disabled]="!loginForm.valid"
+        type="submit"
+      >
+        Login
+      </button>
     </div>
-    <div class="container-image">
+    <div [ngClass]="'container-image'">
       <img src="../../assets/pexels-maria-orlova-4940719.jpg" alt="" />
     </div>
+    <h5>Don't have an account? <a routerLink="/register">Register</a></h5>
   </form>
-
-  <h5>Don't have an account? <a routerLink="/register">Register</a></h5>
 </div>

@@ -22,6 +22,15 @@
   font-style: italic;
 }
 
+.container-error {
+  display: flex;
+  justify-content: center;
+}
+
+.container-error span {
+  color: red;
+}
+
 label {
   margin-top: 10px;
   color: #555;

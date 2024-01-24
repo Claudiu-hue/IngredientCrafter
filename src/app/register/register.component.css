@@ -22,6 +22,21 @@
   font-style: italic;
 }
 
+.container-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-error {
+  display: flex;
+  justify-content: center;
+}
+
+.container-error span {
+  color: red;
+}
+
 label {
   margin-top: 10px;
   color: #555;
