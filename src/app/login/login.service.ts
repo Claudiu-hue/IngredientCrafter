@@ -4,12 +4,14 @@ import { Subject, catchError, tap, throwError } from 'rxjs';
 import { AuthResponseData } from '../shared/interfaces/authResponseData';
 import { User } from '../shared/models/user.model';
 import { handleError } from '../shared/helpers/authFunctions';
+import { RegisterService } from '../register/register.service';
 
 @Injectable({ providedIn: 'root' })
 export class LoginService {
-  user = new Subject<User>();
-
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private registerService: RegisterService
+  ) {}
 
   signIn(email: string, password: string) {
     return this.http
@@ -33,7 +35,7 @@ export class LoginService {
             resData.idToken,
             expirationDate
           );
-          this.user.next(user);
+          this.registerService.user.next(user);
         })
       );
   }
