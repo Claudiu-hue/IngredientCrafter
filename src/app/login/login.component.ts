@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { LoginService } from './login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent {
   isLoading = false;
   error: string = '';
 
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService, private route: Router) {}
 
   onSubmit(form: NgForm) {
     if (!form) {
@@ -25,6 +26,7 @@ export class LoginComponent {
       next: (resData) => {
         console.log(resData);
         this.isLoading = false;
+        this.route.navigate(['/recipes']);
       },
       error: (errorMessage) => {
         this.error = errorMessage;

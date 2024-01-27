@@ -36,6 +36,8 @@ export class LoginService {
             expirationDate
           );
           this.registerService.user.next(user);
+          localStorage.setItem('userData', JSON.stringify(user));
+          this.registerService.autoLogout(+resData.expiresIn * 1000);
         })
       );
   }

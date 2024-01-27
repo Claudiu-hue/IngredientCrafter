@@ -3,12 +3,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { IngredientsComponent } from './ingredients/ingredients.component';
+import { RecipesComponent } from './recipes/recipes.component';
+import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/ingredients', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'ingredients', component: IngredientsComponent },
+  {
+    path: 'ingredients',
+    canActivate: [AuthGuard],
+    component: IngredientsComponent,
+  },
+  { path: 'recipes', canActivate: [AuthGuard], component: RecipesComponent },
 ];
 
 @NgModule({

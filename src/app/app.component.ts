@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs';
+import { RegisterService } from './register/register.service';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +11,13 @@ import { map } from 'rxjs';
 export class AppComponent implements OnInit {
   loadedRecipes = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private registerService: RegisterService
+  ) {}
 
   ngOnInit(): void {
-    // this.fetchRecipes();
+    this.registerService.autoLogin();
   }
 
   onCreateRecipe(recipeData: { title: string; content: string }) {
@@ -21,27 +25,6 @@ export class AppComponent implements OnInit {
       .post(
         'https://ingredientcrafter-default-rtdb.firebaseio.com/ingredients.json',
         recipeData
-      )
-      .subscribe((responseData) => {
-        console.log(responseData);
-      });
-  }
-
-  private fetchRecipes() {
-    this.http
-      .get(
-        'https://ingredientcrafter-default-rtdb.firebaseio.com/ingredients.json'
-      )
-      .pipe(
-        map((responseData: { [key: string]: any }) => {
-          const recipeArray = [];
-          for (const key in responseData) {
-            if (responseData.hasOwnProperty(key)) {
-              recipeArray.push({ ...responseData[key], id: key });
-            }
-          }
-          return recipeArray;
-        })
       )
       .subscribe((responseData) => {
         console.log(responseData);

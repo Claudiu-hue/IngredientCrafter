@@ -1,1 +1,6 @@
-<p>recipes works!</p>
+<div>
+  <p>recipes works!</p>
+  <div [ngClass]="'ceva'" *ngFor="let item of recipes">
+    {{ item.name }}
+  </div>
+</div>
