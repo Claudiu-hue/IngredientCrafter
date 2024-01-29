@@ -1,3 +1,18 @@
-<label>Ingredients</label>
-<input type="text" [(ngModel)]="newIngredient" />
-<button (click)="addProduct(newIngredient)">Add Ingredient</button>
+<div [ngClass]="'ingredients-container'">
+  <div [ngClass]="'adding_ingredients'">
+    <div [ngClass]="'sub-ingredients'">
+      <label for="ingredients">Ingredients</label>
+      <input type="text" [(ngModel)]="newIngredient" />
+      <button (click)="addIngredient(newIngredient)">Add Ingredient</button>
+    </div>
+    <div
+      *ngFor="let item of ingredients; let i = index"
+      style="margin-left: 10px"
+    >
+      <button (click)="deleteIngredient(i, ingredients)">{{ item }}</button>
+    </div>
+  </div>
+  <div [ngClass]="'image-container'">
+    <img src="../../assets/pexels-mareefe-674483.jpg" alt="" />
+  </div>
+</div>

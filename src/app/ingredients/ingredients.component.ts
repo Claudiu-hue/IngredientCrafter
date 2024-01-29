@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RecipeService } from '../recipes/recipe.service';
+import { IngredientsService } from './ingredients.service';
 
 @Component({
   selector: 'app-ingredients',
@@ -9,15 +10,19 @@ import { RecipeService } from '../recipes/recipe.service';
 export class IngredientsComponent {
   newIngredient: string = '';
   ingredients: string[] = [];
-  constructor(private recipeService: RecipeService) {}
+  constructor(private ingredientsService: IngredientsService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.ingredients = this.ingredientsService.getIngredients();
+  }
 
-  onInputChange(event: Event) {}
-
-  addProduct(ingredient: string) {
+  addIngredient(ingredient: string) {
     this.ingredients.push(ingredient);
+    this.ingredientsService.saveIngredients(this.ingredients);
     this.newIngredient = '';
-    console.log(this.ingredients);
+  }
+
+  deleteIngredient(index: number, ingredients: string[]) {
+    this.ingredientsService.deleteIngredient(index, ingredients);
   }
 }

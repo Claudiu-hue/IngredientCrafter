@@ -1,0 +1,68 @@
+.ingredients-container {
+  width: 900px;
+  min-height: 700px;
+  display: flex;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.adding_ingredients {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.sub-ingredients {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  margin-top: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+button:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+input {
+  width: 250px;
+  border: none;
+  border-radius: 5px;
+  padding: 3px 0px;
+}
+
+input:focus {
+  outline: none;
+}
+
+p {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.image-container {
+  width: 50%;
+}
+
+label {
+  text-align: center;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+button {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
