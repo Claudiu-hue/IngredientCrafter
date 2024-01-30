@@ -6,10 +6,9 @@
       <li><a routerLink="/ingredients">Ingredients</a></li>
     </div>
     <div [ngClass]="'rightSide-menu'">
-      <!-- <li><a routerLink="/login">Login</a></li>
-      <button><a routerLink="/register">SignUp</a></button> -->
       <button [ngClass]="'logout'" (click)="onLogout()">
         <a routerLink="">Logout</a>
+        <img src="../../assets/icons8-logout-24.png" alt="" />
       </button>
     </div>
   </ul>
