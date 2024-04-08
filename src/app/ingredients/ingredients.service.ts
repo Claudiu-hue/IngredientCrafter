@@ -49,7 +49,6 @@ export class IngredientsService {
 
   deleteIngredient(index: number, ingredients: string[]) {
     ingredients.splice(index, 1);
-
     this.saveIngredients(ingredients);
   }
 }
