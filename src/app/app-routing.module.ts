@@ -12,10 +12,11 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   {
     path: 'ingredients',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     component: IngredientsComponent,
   },
-  { path: 'recipes', canActivate: [AuthGuard], component: RecipesComponent },
+  { path: 'recipes', component: RecipesComponent },
+  //canActivate:[AuthGuard]
 ];
 
 @NgModule({

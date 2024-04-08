@@ -1,4 +1,5 @@
-<nav *ngIf="isAuthenticated">
+<!-- <nav *ngIf="isAuthenticated"> -->
+<nav>
   <ul>
     <div [ngClass]="'leftSide-menu'">
       <li><a routerLink="/">Home</a></li>
@@ -6,10 +7,10 @@
       <li><a routerLink="/ingredients">Ingredients</a></li>
     </div>
     <div [ngClass]="'rightSide-menu'">
-      <button [ngClass]="'logout'" (click)="onLogout()">
+      <!-- <button [ngClass]="'logout'" (click)="onLogout()">
         <a routerLink="">Logout</a>
         <img src="../../assets/icons8-logout-24.png" alt="" />
-      </button>
+      </button> -->
     </div>
   </ul>
 </nav>
