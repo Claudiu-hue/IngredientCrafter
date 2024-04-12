@@ -1,0 +1,101 @@
+.file-upload-container {
+  width: 800px;
+  min-height: 400px;
+  background-color: #6226ff;
+  border-radius: 20px;
+  display: flex;
+}
+
+.left-side {
+  width: 50%;
+}
+
+.fileImage {
+  text-align: center;
+}
+
+.fileImage input[type="file"] {
+  display: none;
+}
+
+.fileImage label {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.fileImage label:hover {
+  background-color: #45a049;
+}
+
+.uploaded-image {
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+ul {
+  width: auto;
+}
+
+.analysis-results {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.analysis-results h3 {
+  margin-top: 0;
+}
+
+.ngContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 800px) {
+  .file-upload-container {
+    width: 600px;
+  }
+  .uploaded-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .file-upload-container img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .file-upload-container {
+    width: 400px;
+  }
+
+  .file-upload-container img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .uploaded-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

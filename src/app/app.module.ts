@@ -15,6 +15,7 @@ import { HeaderComponent } from './header/header.component';
 import { CommonModule } from '@angular/common';
 import { RecipesComponent } from './recipes/recipes.component';
 import { AuthInterceptorService } from './shared/auth-interceptor.service';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AuthInterceptorService } from './shared/auth-interceptor.service';
     IngredientsComponent,
     HeaderComponent,
     RecipesComponent,
+    FileUploadComponent,
   ],
   imports: [
     BrowserModule,

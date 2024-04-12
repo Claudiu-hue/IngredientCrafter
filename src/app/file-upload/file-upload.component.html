@@ -1,0 +1,28 @@
+<div class="file-upload-container">
+  <div class="left-side">
+    <div *ngIf="imageUrl" class="uploaded-image">
+      <img [src]="imageUrl" alt="Uploaded Image" />
+    </div>
+
+    <div class="ngContainer" *ngIf="!imageUrl">
+      <span>Please select an image </span>
+      <div class="fileImage">
+        <input type="file" id="fileInput" (change)="onFileSelected($event)" />
+        <label for="fileInput">Choose Image</label>
+      </div>
+    </div>
+  </div>
+  <div class="analysis-results">
+    <ul *ngIf="!showSpinner">
+      <li *ngFor="let ingredient of analysisResults">
+        {{ ingredient.description }}
+      </li>
+    </ul>
+    <ng-container *ngIf="!imageUrl">
+      <div>Your result will be here</div>
+    </ng-container>
+    <div *ngIf="showSpinner">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+  </div>
+</div>

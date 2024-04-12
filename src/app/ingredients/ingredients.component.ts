@@ -14,7 +14,6 @@ export class IngredientsComponent {
 
   ngOnInit(): void {
     this.ingredients = this.ingredientsService.getIngredients();
-    console.log(this.ingredientsService.filterRecipesByIngredients());
   }
 
   addIngredient(ingredient: string) {
